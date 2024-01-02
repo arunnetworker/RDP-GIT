@@ -1,0 +1,28 @@
+terraform {
+    required_providers {
+      aws = {
+        source = "hasicrop/aws"
+        version = "~>4.0"
+      }
+    }
+  
+}
+ provider "aws" {
+    region = "ap-south-1"
+   
+ }
+ 
+ resource "aws_instance" "aws" { 
+    ami = "124578963"
+    instance_type = "t.micro"  
+ }
+ resource "aws_s3_bucket" "b" { 
+    bucket = "arun"
+
+    versioning {
+      enable = "true"
+    }
+   
+ }
+
+
